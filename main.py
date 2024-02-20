@@ -8,6 +8,8 @@ import threading
 
 import webview.menu as wm
 
+import platform
+
 backendPort = 6789
 host = "0.0.0.0"
 
@@ -50,7 +52,10 @@ if __name__ == "__main__":
         ),
     ]
 
-    webview.start(menu=menu_items)
-    
-    webview.start()
+    match platform.system():
+        case "Windows":
+            webview.start(menu=menu_items)
+        case "Linux":
+            webview.start(menu=menu_items, gui='gtk', private_mode=False)
+        
     sys.exit()
