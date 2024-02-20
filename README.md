@@ -4,7 +4,7 @@ This is a program which takes a React/Next.js/HTML project and provides a simple
 
 ### Platforms
 - Windows
-- Linux (Coming soon)
+- Linux
 
 ## Quick Start
 ### Installation
@@ -13,22 +13,32 @@ This is a program which takes a React/Next.js/HTML project and provides a simple
     git clone https://github.com/jchu634/EasyWebpageBundler
     ```
 2. Install the required packages
-    ```
+    ```powershell
+    # For Windows
     pip install -r requirements.txt
     ```
+    ```bash
+    # For Linux
+    pip install -r linux_requirements.txt
+    ```
+
 3. Add your React/Next.js/HTML project to the `static` folder
     
 4. Customise the build scripts to include your project name
-    -   `package.iss`
+    -   `package.iss` (Windows)
         ```
         #define AppName "EasyWebPageBundler"
         #define AppVersion "1.0.0"
         #define AppPublisher "Example"
         #define AppExeName "EasyWebPageBundler"
         ```
-    - `build.ps1`
+    - `build.ps1` (Windows)
         ```
         $applicationName = "EasyWebPageBundler"
+        ```
+    - `build.sh` (Linux)
+        ```
+        applicationName="EasyWebPageBundler"
         ```
 5. Add environment variables as appropiate to the `.env` file (Optional)
     ```
